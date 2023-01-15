@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 
 <head>
     <meta charset="UTF-8">
@@ -21,7 +21,7 @@
                         <a href="#">Главная</a>
                     </li>
                     <li class="menu-item">
-                        <a href="#cars">Автомобили</a>
+                        <a href="#watch-cars">Автомобили</a>
                     </li>
                     <li class="menu-item">
                         <a href="#price">Бронирование авто</a>
@@ -41,12 +41,12 @@
                     за рулем настоящей легенды и узнать, на что она способна за пределами гоночной трассы!
                 </p>
                 <div class="main-action">
-                    <button class="button">Посмотреть автомобили</button>
+                    <button id="main-action" class="button">Посмотреть автомобили</button>
                 </div>
             </div>
         </div>
     </section>
-    <section class="car" id="cars">
+    <section class="car" id="watch-cars">
         <div class="container">
             <h2 class="sub-title">Наш автопарк</h2>
             <div class="car-items">
@@ -77,7 +77,7 @@
                         </div>
                     </div>
                     <div class="car-item-action">
-                        <button class="button">Забронировать</button>
+                        <button class="button car-button">Забронировать</button>
                     </div>
                 </div>
                 <div class="car-item">
@@ -107,7 +107,7 @@
                         </div>
                     </div>
                     <div class="car-item-action">
-                        <button class="button">Забронировать</button>
+                        <button class="button car-button">Забронировать</button>
                     </div>
                 </div>
                 <div class="car-item">
@@ -137,7 +137,7 @@
                         </div>
                     </div>
                     <div class="car-item-action">
-                        <button class="button">Забронировать</button>
+                        <button class="button car-button">Забронировать</button>
                     </div>
                 </div>
                 <div class="car-item">
@@ -167,7 +167,7 @@
                         </div>
                     </div>
                     <div class="car-item-action">
-                        <button class="button">Забронировать</button>
+                        <button class="button car-button">Забронировать</button>
                     </div>
                 </div>
                 <div class="car-item">
@@ -197,7 +197,7 @@
                         </div>
                     </div>
                     <div class="car-item-action">
-                        <button class="button">Забронировать</button>
+                        <button class="button car-button">Забронировать</button>
                     </div>
                 </div>
                 <div class="car-item">
@@ -227,7 +227,7 @@
                         </div>
                     </div>
                     <div class="car-item-action">
-                        <button class="button">Забронировать</button>
+                        <button class="button car-button">Забронировать</button>
                     </div>
                 </div>
                 <div class="car-item">
@@ -257,7 +257,7 @@
                         </div>
                     </div>
                     <div class="car-item-action">
-                        <button class="button">Забронировать</button>
+                        <button class="button car-button">Забронировать</button>
                     </div>
                 </div>
                 <div class="car-item">
@@ -287,7 +287,7 @@
                         </div>
                     </div>
                     <div class="car-item-action">
-                        <button class="button">Забронировать</button>
+                        <button class="button car-button">Забронировать</button>
                     </div>
                 </div>
                 <div class="car-item">
@@ -317,7 +317,7 @@
                         </div>
                     </div>
                     <div class="car-item-action">
-                        <button class="button">Забронировать</button>
+                        <button class="button car-button">Забронировать</button>
                     </div>
                 </div>
             </div>
@@ -330,11 +330,12 @@
             <p class="price-text">
                 Заполните данные, и мы перезвоним вам для уточнения всех деталей бронирования
             </p>
-            <form action="" class="price-form">
-                <input type="text" class="price-input" placeholder="Ваше имя">
-                <input type="text" class="price-input" placeholder="Ваш телефон">
-                <input type="text" class="price-input" placeholder="Автомобиль, который Вас интересует">
-                <button class="button">Узнать цену</button>
+            <form action="" class="price-form" method="post" enctype="multipart/form-data">
+                <input type="text" class="price-input" placeholder="Ваше имя" id="name" required minlength="2">
+                <input type="phone" class="price-input" placeholder="Ваш телефон" id="phone" required>
+                <input type="text" class="price-input" placeholder="Автомобиль, который Вас интересует" id="car"
+                    required minlength="3">
+                <button class="button" id="price-action" type="submit">Узнать цену</button>
             </form>
             <img src="./img/rolls.png" alt="picture of rolls-royce" class="price-image">
         </div>
@@ -347,6 +348,7 @@
             <p class="rights">Все права защищены</p>
         </div>
     </footer>
+    <script src="js/index.js"></script>
 </body>
 
 </html>
