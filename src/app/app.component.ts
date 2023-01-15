@@ -14,86 +14,12 @@ export class AppComponent {
     car: ['', Validators.required]
   });
 
-  // carsData = [
-  //   {
-  //     image: 'Lamborghini-Huracan-Spyder.png',
-  //     name: 'Lamborghini Huracan Spyder',
-  //     transmission: 'Автомат',
-  //     engine: 5.2,
-  //     year: 2019
-  //   },
-
-  //   {
-  //     image: 'Chevrolet-Corvette.png',
-  //     name: 'Chevrolet Corvette',
-  //     transmission: 'Автомат',
-  //     engine: 6.2,
-  //     year: 2017
-  //   },
-
-  //   {
-  //     image: 'Ferrari-California.png',
-  //     name: 'Ferrari California',
-  //     transmission: 'Автомат',
-  //     engine: 3.9,
-  //     year: 2010
-  //   },
-
-  //   {
-  //     image: 'Lamborghini-Urus.png',
-  //     name: 'Lamborghini Urus',
-  //     transmission: 'Автомат',
-  //     engine: 4.0,
-  //     year: 2019
-  //   },
-
-  //   {
-  //     image: 'Audi-R8.png',
-  //     name: 'Audi R8',
-  //     transmission: 'Автомат',
-  //     engine: 5.2,
-  //     year: 2018
-  //   },
-
-  //   {
-  //     image: 'Chevrolet-Camaro.png',
-  //     name: 'Chevrolet Camaro',
-  //     transmission: 'Автомат',
-  //     engine: 2.0,
-  //     year: 2019
-  //   },
-
-  //   {
-  //     image: 'Maserati-Quattroporte.png',
-  //     name: 'Maserati Quattroporte',
-  //     transmission: 'Автомат',
-  //     engine: 3.0,
-  //     year: 2018
-  //   },
-
-  //   {
-  //     image: 'Dodge-Challenger.png',
-  //     name: 'Dodge Challenger',
-  //     transmission: 'Автомат',
-  //     engine: 6.4,
-  //     year: 2019
-  //   },
-
-  //   {
-  //     image: 'Nissan-GT-R.png',
-  //     name: 'Nissan GT-R.png',
-  //     transmission: 'Автомат',
-  //     engine: 3.8,
-  //     year: 2019
-  //   },
-  // ];
-
-  carsData:any;
+  carsData: any;
 
   constructor(private fb: FormBuilder, private appService: AppService) { }
 
   ngOnInit() {
-    this.appService.getData().subscribe(carsData => this.carsData = carsData);
+    this.appService.getData(this.category).subscribe(carsData => this.carsData = carsData);
   }
 
 
@@ -102,6 +28,12 @@ export class AppComponent {
     if (car) {
       this.priceForm.patchValue({ car: car.name });
     }
+  }
+
+  category: string = 'sport';
+  toggleCategory(category: string) {
+    this.category = category;
+    this.ngOnInit();
   }
 
   trans: any;
