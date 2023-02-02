@@ -1,7 +1,7 @@
 <header class="header">
   <div class="container">
     <div class="logo">
-      <img src="../assets/img/logo.svg" alt="logo">
+      <img src="assets/img/logo.svg" alt="logo">
     </div>
     <nav class="menu">
       <ul>
@@ -36,27 +36,31 @@
 <section class="car" id="watch-cars" #cars>
   <div class="container">
     <h2 class="sub-title">Наш автопарк</h2>
+    <div class="car-toggle">
+      <div [ngClass]="{active: category === 'sport'}" (click)="toggleCategory('sport')">Sport</div>
+      <div [ngClass]="{active: category === 'luxury'}" (click)="toggleCategory('luxury')">Luxury</div>
+    </div>
     <div class="car-items">
       <div class="car-item" *ngFor="let car of carsData">
         <div class="car-item-image">
-          <img src="../assets/img/{{car.image}}" alt="picture of Lamborghini Huracan Spyder">
+          <img src="{{car.image}}" alt="picture of Lamborghini Huracan Spyder">
         </div>
         <p class="car-item-title">{{car.name}}</p>
         <div class="car-item-info">
           <div class="car-item-point">
-            <img src="../assets/img/transmission.png" alt="transmission">
-            <p>Коробка</p>
-            <p>{{car.transmission}}</p>
+            <img src="assets/img/gear.svg" alt="gear">
+            <p>Привод</p>
+            <p>{{car.gear}}</p>
           </div>
           <div class="car-item-point">
-            <img src="../assets/img/wheel.svg" alt="wheel">
+            <img src="assets/img/wheel.svg" alt="wheel">
             <p>Двигатель</p>
             <p>{{car.engine}} л.с</p>
           </div>
           <div class="car-item-point">
-            <img src="../assets/img/year.png" alt="year">
-            <p>Год выпуска</p>
-            <p>{{car.year}}</p>
+            <img src="assets/img/belt.svg" alt="amount of places">
+            <p>Кол-во мест</p>
+            <p>{{car.places}}</p>
           </div>
         </div>
         <div class="car-item-action">
@@ -77,7 +81,8 @@
       <input type="phone" class="price-input" placeholder="Ваш телефон" id="phone" formControlName="phone">
       <input type="text" class="price-input" placeholder="Автомобиль, который Вас интересует" id="car"
         formControlName="car">
-      <button class="button" id="price-action" type="submit" (click)="onSubmit()" [disabled]="!priceForm.valid">Узнать цену</button>
+      <button class="button" id="price-action" type="submit" (click)="onSubmit()" [disabled]="!priceForm.valid">Узнать
+        цену</button>
     </form>
     <img src="../assets/img/rolls.png" alt="picture of rolls-royce" class="price-image" [ngStyle]="trans">
   </div>
